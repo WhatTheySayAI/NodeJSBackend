@@ -4,6 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 const APIKey = process.env.ASSEMBLY_API_KEY;
 
+const port = process.env.PORT || 7000;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -27,7 +28,7 @@ app.get('/', async (req, res) => {
   }
 });
 
-app.set('port', 8000);
+app.set('port', port);
 const server = app.listen(app.get('port'), () => {
   console.log(`Server is running on port ${server.address().port}`);
 });
